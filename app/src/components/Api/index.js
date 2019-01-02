@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ApiList from '../ApiList';
 
 require('dotenv').config()
 
@@ -20,12 +21,8 @@ class Api extends Component {
     render() {
       return (
             <div><p>{this.message}{this.time.toUTCString()}</p>
-            { <ul className="nasa-list">
-                {this.state.obj.map( item => (
-                    <li key={item.activityID}>{item.note}</li>
-                    )
-                )}
-            </ul> }
+            <ApiList list={this.state.obj} />
+            
             </div>
 
         );
